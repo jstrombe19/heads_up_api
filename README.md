@@ -1,14 +1,14 @@
 # Project
 
-[project.com](https://project.com)
+[codes-up-api.herokuapp.com/](https://codes-up-api.herokuapp.com/)
 
-## Install
+## Install  
 
 ### Clone the repository
 
 ```shell
-git clone git@github.com:juliendargelos/project.git
-cd project
+git clone git@github.com:jstrombe19/heads_up_api.git
+cd heads_up_api
 ```
 
 ### Check your Ruby version
@@ -17,27 +17,20 @@ cd project
 ruby -v
 ```
 
-The ouput should start with something like `ruby 2.5.1`
+The ouput should start with something like `ruby 2.6.1`
 
 If not, install the right ruby version using [rbenv](https://github.com/rbenv/rbenv) (it could take a while):
 
 ```shell
-rbenv install 2.5.1
+rbenv install 2.6.1
 ```
-
 ### Install dependencies
 
-Using [Bundler](https://github.com/bundler/bundler) and [Yarn](https://github.com/yarnpkg/yarn):
+Using [Bundler](https://github.com/bundler/bundler): 
 
 ```shell
-bundle && yarn
+bundle
 ```
-
-### Set environment variables
-
-Using [Figaro](https://github.com/laserlemon/figaro):
-
-See [config/application.yml.sample](https://github.com/juliendargelos/project/blob/master/config/application.yml.sample) and contact the developer: [contact@juliendargelos.com](mailto:contact@juliendargelos.com) (sensitive data).
 
 ### Initialize the database
 
