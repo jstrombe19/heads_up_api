@@ -1,13 +1,13 @@
 class CategoriesController < ApplicationController
   before_action :find_category_by_id, only: [:show, :update, :destroy]
-  before_action :find_all_categories, only: [:index, :destroy]
+  before_action :get_all_categories, only: [:index, :destroy]
 
   def index
-    render json: @categories 
+    render json: @categories, include: :cards
   end
 
   def show
-    render json: @category 
+    render json: @category, include: :cards
   end
 
   def create
@@ -25,7 +25,7 @@ class CategoriesController < ApplicationController
 
   def destroy 
     @category.destroy 
-    render json: @categories 
+    render json: @categories, include: :cards 
   end
 
   private
@@ -34,7 +34,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
-  def find_all_categories
+  def get_all_categories
     @categories = Category.all 
   end
 
