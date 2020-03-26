@@ -3,11 +3,11 @@ class CardsController < ApplicationController
   before_action :get_all_cards, only: [:index, :destroy]
 
   def index 
-    render json: @cards
+    render json: @cards, include: :category
   end
 
   def show 
-    render json: @card 
+    render json: @card, include: :category 
   end
 
   def create
@@ -33,7 +33,7 @@ class CardsController < ApplicationController
   def card_params
     params.require(:card).permit([:question, :answer, :difficulty, :category_id])
   end
-  
+
   def find_card_by_id
     @card = Card.find(params[:id])
   end
