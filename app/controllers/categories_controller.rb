@@ -25,7 +25,7 @@ class CategoriesController < ApplicationController
 
   def destroy 
     @category.destroy 
-    render json: @categories 
+    render json: @categories, include: :cards 
   end
 
   private
