@@ -52,24 +52,30 @@ heroku git:remote --remote heroku-staging -a project-staging
 ```shell
 rails s
 ```
+## Endpoints
+The production url is `https://codes-up-api.herokuapp.com/` 
+
+Return an array list of all cards            
+GET `https://codes-up-api.herokuapp.com/cards`
+Create new card
+POST `https://codes-up-api.herokuapp.com/card`
+Show an indivdual card
+GET `https://codes-up-api.herokuapp.com/cards/cardId`  
+Update an indivdual card
+PATCH/PUT `https://codes-up-api.herokuapp.com/cards/cardId`
+Delete card
+DELETE `https://codes-up-api.herokuapp.com/cards/:id(.:format)`                                                                 
+
+
+                           categories GET    /categories(.:format)                                                                    categories#index
+                                      POST   /categories(.:format)                                                                    categories#create
+                             category GET    /categories/:id(.:format)                                                                categories#show
+                                      PATCH  /categories/:id(.:format)                                                                categories#update
+                                      PUT    /categories/:id(.:format)                                                                categories#update
+                                      DELETE /categories/:id(.:format)                                                                categories#destroy
+
 
 ## Deploy
-
-### With Heroku pipeline (recommended)
-
-Push to Heroku staging remote:
-
-```shell
-git push heroku-staging
-```
-
-Go to the Heroku Dashboard and [promote the app to production](https://devcenter.heroku.com/articles/pipelines) or use Heroku CLI:
-
-```shell
-heroku pipelines:promote -a project-staging
-```
-
-### Directly to production (not recommended)
 
 Push to Heroku production remote:
 
