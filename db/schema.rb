@@ -16,20 +16,21 @@ ActiveRecord::Schema.define(version: 2020_03_26_182003) do
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
-    t.string "question"
-    t.text "answer"
+    t.string "term"
+    t.text "definition"
     t.integer "difficulty"
-    t.bigint "category_id", null: false
+    t.bigint "deck_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_cards_on_category_id"
+    t.index ["deck_id"], name: "index_cards_on_deck_id"
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "decks", force: :cascade do |t|
     t.string "title"
+    t.string "img"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "cards", "categories"
+  add_foreign_key "cards", "decks"
 end
